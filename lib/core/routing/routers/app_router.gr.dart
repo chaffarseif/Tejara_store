@@ -23,9 +23,9 @@ import 'package:tejara_store/main/internet_checker_module/widgets/internet_check
 import 'package:tejara_store/main/responsive/responsive_container.dart' as _i8;
 import 'package:tejara_store/main/theme_selector_module/widgets/theme_selector_container.dart'
     as _i9;
-import 'package:tejara_store/main/widgets/core_bloc_provider_contatiner.dart'
+import 'package:tejara_store/main/main_module/bloc_widgets/core_bloc_provider_contatiner.dart'
     as _i3;
-import 'package:tejara_store/main/widgets/general_bloc_provider_container.dart'
+import 'package:tejara_store/main/main_module/bloc_widgets/general_bloc_provider_container.dart'
     as _i4;
 
 /// generated route for
