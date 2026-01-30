@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "492691104119",
+    "project_id": "tejara-store",
+    "storage_bucket": "tejara-store.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492691104119:android:4a0236a65557c2658c0172",
+        "android_client_info": {
+          "package_name": "com.example.tejara_store"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhxvmVYZT-k5cTsoez1aQN2dtcdwmEZu4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
