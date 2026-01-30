@@ -1,0 +1,22 @@
+<svg width="300" height="80" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pas de rectangle de fond = Transparence totale -->
+
+  <!-- L'ICÔNE (Géométrique) -->
+  <g transform="translate(10, 10)">
+      <!-- Barre verticale (Teal) -->
+      <path d="M25 0 H45 V50 C45 55, 40 60, 35 60 H35 C30 60, 25 55, 25 50 V0 Z" fill="#37a6bf"/>
+      <!-- Barre horizontale (Teal) -->
+      <path d="M0 0 H35 V18 H0 V0 Z" fill="#37a6bf"/>
+      <!-- Le Point (Jaune - Secondary) -->
+      <circle cx="58" cy="10" r="10" fill="#FFE24B"/>
+  </g>
+
+  <!-- LE TEXTE -->
+  <g transform="translate(85, 52)" font-family="Arial, Helvetica, sans-serif">
+    <!-- "Tejara" en Gris Foncé (textPrimary) -->
+    <text x="0" y="0" font-size="38" font-weight="bold" fill="#333333" letter-spacing="-1">Tejara</text>
+    
+    <!-- "Store" en Teal (primary) pour faire le lien avec l'icône -->
+    <text x="110" y="0" font-size="38" font-weight="300" fill="#37a6bf">Store</text>
+  </g>
+</svg>
