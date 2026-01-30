@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="260" viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Main Gradient - Deep Blue Premium -->
+    <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A5F"/>
+      <stop offset="100%" stop-color="#2D5A87"/>
+    </linearGradient>
+    
+    <!-- Gold Gradient - Premium Accent -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#C9A227"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+
+    <!-- Shadow Filter -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Islamic Geometric Frame - Octagonal -->
+  <g filter="url(#shadow)">
+    <path 
+      d="M100 10 L145 25 L175 55 L190 100 L175 145 L145 175 L100 190 L55 175 L25 145 L10 100 L25 55 L55 25 Z" 
+      fill="url(#mainGrad)"/>
+    
+    <!-- Inner decorative ring -->
+    <path 
+      d="M100 25 L138 38 L162 62 L175 100 L162 138 L138 162 L100 175 L62 162 L38 138 L25 100 L38 62 L62 38 Z" 
+      fill="none" 
+      stroke="url(#goldGrad)"
+      stroke-width="2"/>
+
+    <!-- Islamic Star Pattern - 8 pointed -->
+    <path 
+      d="M100 35 L108 60 L133 52 L115 72 L140 80 L115 88 L133 108 L108 100 L100 125 L92 100 L67 108 L85 88 L60 80 L85 72 L67 52 L92 60 Z"
+      fill="url(#goldGrad)"
+      opacity="0.3"/>
+  </g>
+
+  <!-- T Letter - Left Side -->
+  <g>
+    <rect x="45" y="65" width="50" height="12" rx="3" fill="url(#goldGrad)"/>
+    <rect x="64" y="65" width="12" height="55" rx="3" fill="url(#goldGrad)"/>
+    <circle cx="70" cy="128" r="4" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- J Letter - Right Side with Islamic curve -->
+  <g>
+    <rect x="105" y="65" width="50" height="12" rx="3" fill="url(#goldGrad)"/>
+    <rect x="124" y="65" width="12" height="45" rx="3" fill="url(#goldGrad)"/>
+    <path 
+      d="M136 105 L136 120 Q136 135 121 135 Q106 135 106 120 L106 115" 
+      fill="none" 
+      stroke="url(#goldGrad)"
+      stroke-width="12"
+      stroke-linecap="round"/>
+    <circle cx="106" cy="108" r="4" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- Central connecting element - Islamic arch -->
+  <path 
+    d="M76 135 Q100 150 124 135" 
+    fill="none" 
+    stroke="url(#goldGrad)"
+    stroke-width="3"
+    stroke-linecap="round"/>
+
+  <!-- Decorative Islamic elements -->
+  <circle cx="100" cy="55" r="3" fill="url(#goldGrad)"/>
+  <circle cx="50" cy="100" r="2" fill="url(#goldGrad)" opacity="0.7"/>
+  <circle cx="150" cy="100" r="2" fill="url(#goldGrad)" opacity="0.7"/>
+
+  <!-- Corner arabesques -->
+  <path d="M35 55 Q42 48 50 55" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M150 55 Q158 48 165 55" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M35 145 Q42 152 50 145" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M150 145 Q158 152 165 145" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Text - TEJARA STORE -->
+  <text x="100" y="220" text-anchor="middle" font-family="Georgia, serif" font-size="24" font-weight="bold" fill="#1E3A5F" letter-spacing="3">TEJARA</text>
+  <text x="100" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#C9A227" letter-spacing="8">STORE</text>
+</svg>
