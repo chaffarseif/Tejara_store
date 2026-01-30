@@ -8,6 +8,6 @@ class GeneralBlocProviderContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(providers: [], child: AutoRouter());
+    return AutoRouter();
   }
 }

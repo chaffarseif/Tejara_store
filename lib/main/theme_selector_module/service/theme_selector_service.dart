@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:karma_design_system_mobile/karma_design_system_mobile.dart';
 import 'package:tejara_store/core/config/global_config.dart';
@@ -37,9 +38,9 @@ class ThemeSelectorService {
 
   void updateStyleConfig(StyleConfigModeType mode) {
     final getIt = GetIt.instance;
-    if (getIt.isRegistered<StyleConfig>()) {
-      getIt.unregister<StyleConfig>();
+    if (getIt.isRegistered<ThemeData>()) {
+      getIt.unregister<ThemeData>();
     }
-    getIt.registerSingleton<StyleConfig>(GlobalConfig.styleConfig(mode));
+    getIt.registerSingleton<ThemeData>(TejaraTheme.lightTheme);
   }
 }

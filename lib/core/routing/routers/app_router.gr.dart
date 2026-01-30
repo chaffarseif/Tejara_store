@@ -10,23 +10,23 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i10;
-import 'package:tejara_store/main/authentication_module/widgets/login/widgets/login_container.dart'
-    as _i6;
-import 'package:tejara_store/main/authentication_module/widgets/register/widgets/register_container.dart'
-    as _i7;
 import 'package:tejara_store/main/app_life_cycle_module/widget/app_life_cycle_container.dart'
     as _i1;
 import 'package:tejara_store/main/app_store_module/widget/app_store_update_container.dart'
     as _i2;
+import 'package:tejara_store/main/authentication_module/widgets/login/widgets/login_container.dart'
+    as _i6;
+import 'package:tejara_store/main/authentication_module/widgets/register/widgets/register_container.dart'
+    as _i7;
 import 'package:tejara_store/main/internet_checker_module/widgets/internet_checker_container.dart'
     as _i5;
-import 'package:tejara_store/main/responsive/responsive_container.dart' as _i8;
-import 'package:tejara_store/main/theme_selector_module/widgets/theme_selector_container.dart'
-    as _i9;
 import 'package:tejara_store/main/main_module/bloc_widgets/core_bloc_provider_contatiner.dart'
     as _i3;
 import 'package:tejara_store/main/main_module/bloc_widgets/general_bloc_provider_container.dart'
     as _i4;
+import 'package:tejara_store/main/responsive/responsive_container.dart' as _i8;
+import 'package:tejara_store/main/theme_selector_module/widgets/theme_selector_container/theme_selector_container.dart'
+    as _i9;
 
 /// generated route for
 /// [_i1.AppLifeCycleContainer]
