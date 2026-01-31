@@ -1,52 +1,48 @@
+import 'package:flutter/material.dart';
 import 'package:tejara_store/core/assets/custom_colors.dart';
-import 'package:karma_design_system_mobile/avatar/configs/sg_avatar_style.config.dart';
-import 'package:karma_design_system_mobile/buttons/configs/sg_link_button_style.config.dart';
-import 'package:karma_design_system_mobile/buttons/configs/sg_plain_button_style.config.dart';
-import 'package:karma_design_system_mobile/configs/color_style.config.dart';
-import 'package:karma_design_system_mobile/configs/style.config.dart';
-import 'package:karma_design_system_mobile/configs/style_config_mode.dart';
+import 'package:tejara_store/core/theme/appbar_theme.dart';
+import 'package:tejara_store/core/theme/bottom_sheet_theme.dart';
+import 'package:tejara_store/core/theme/checkbox_theme.dart';
+import 'package:tejara_store/core/theme/chip_theme.dart';
+import 'package:tejara_store/core/theme/elevated_button_theme.dart';
+import 'package:tejara_store/core/theme/outlined_button_theme.dart';
+import 'package:tejara_store/core/theme/text_field_theme.dart';
+import 'package:tejara_store/core/theme/text_theme%20copy.dart';
 
-class GlobalConfig {
-  static const pageSize = 12;
-  static const shortPageSize = 6;
+class TejaraTheme {
+  TejaraTheme._();
 
-  static StyleConfig styleConfig(StyleConfigModeType selectedMode) {
-    final ColorStyleConfigItem lightMode = ColorStyleConfigItem(
-      primaryColor: TejaraColors.primary,
-      backgroundColor: TejaraColors.white,
-      surfaceColor: TejaraColors.white,
-      textColor: TejaraColors.primary,
-    );
-    return StyleConfig(
-      selectedMode: selectedMode,
-      colorStyleConfig: ColorStyleConfig(
-        initialMode: lightMode,
-        lightMode: lightMode,
-        darkMode: ColorStyleConfigItem(
-          primaryColor: TejaraColors.primary,
-          backgroundColor: TejaraColors.dark,
-          surfaceColor: TejaraColors.darkContainer,
-          textColor: TejaraColors.white,
-        ),
-      ),
-      fontFamily: 'Roboto',
-      sgAvatarStyleConfig: SgAvatarStyleConfig(
-        initialMode: SgAvatarStyleConfigItem(
-          backgroundColor: TejaraColors.primary,
-          size: 90,
-        ),
-      ),
-      sgPlainButtonStyleConfig: SgPlainButtonStyleConfig(
-        initialMode: SgPlainButtonStyleConfigItem(
-          backgroundColor: TejaraColors.primary,
-        ),
-      ),
-      sgLinkButtonStyleConfig: SgLinkButtonStyleConfig(
-        initialMode: SgLinkButtonStyleConfigItem(
-          textColor: TejaraColors.primary,
-        ),
-        darkMode: SgLinkButtonStyleConfigItem(textColor: TejaraColors.primary),
-      ),
-    );
-  }
+  static ThemeData lightTheme = ThemeData(
+    useMaterial3: true,
+    fontFamily: 'Poppins',
+    disabledColor: TejaraColors.grey,
+    brightness: Brightness.light,
+    primaryColor: TejaraColors.primary,
+    textTheme: TejaraTextTheme.lightTextTheme,
+    chipTheme: TejaraChipTheme.lightChipTheme,
+    scaffoldBackgroundColor: TejaraColors.white,
+    appBarTheme: TejaraAppBarTheme.lightAppBarTheme,
+    checkboxTheme: TejaraCheckboxTheme.lightCheckboxTheme,
+    bottomSheetTheme: TejaraBottomSheetTheme.lightBottomSheetTheme,
+    elevatedButtonTheme: TejaraElevatedButtonTheme.lightElevatedButtonTheme,
+    outlinedButtonTheme: TejaraOutlinedButtonTheme.lightOutlinedButtonTheme,
+    inputDecorationTheme: TejaraTextFormFieldTheme.lightInputDecorationTheme,
+  );
+
+  static ThemeData darkTheme = ThemeData(
+    useMaterial3: true,
+    fontFamily: 'Poppins',
+    disabledColor: TejaraColors.grey,
+    brightness: Brightness.dark,
+    primaryColor: TejaraColors.primary,
+    textTheme: TejaraTextTheme.darkTextTheme,
+    chipTheme: TejaraChipTheme.darkChipTheme,
+    scaffoldBackgroundColor: TejaraColors.black,
+    appBarTheme: TejaraAppBarTheme.darkAppBarTheme,
+    checkboxTheme: TejaraCheckboxTheme.darkCheckboxTheme,
+    bottomSheetTheme: TejaraBottomSheetTheme.darkBottomSheetTheme,
+    elevatedButtonTheme: TejaraElevatedButtonTheme.darkElevatedButtonTheme,
+    outlinedButtonTheme: TejaraOutlinedButtonTheme.darkOutlinedButtonTheme,
+    inputDecorationTheme: TejaraTextFormFieldTheme.darkInputDecorationTheme,
+  );
 }

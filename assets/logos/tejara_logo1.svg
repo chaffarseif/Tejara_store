@@ -1,0 +1,31 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fond de l'icône (Blanc arrondi style iOS/Android Adaptive) -->
+  <rect width="512" height="512" rx="115" fill="#FFFFFF"/>
+  
+  <!-- Ombre portée douce pour le relief -->
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#37a6bf" flood-opacity="0.25"/>
+  </filter>
+
+  <!-- L'anse du sac -->
+  <path d="M196 160 C 196 90, 316 90, 316 160" 
+        stroke="#37a6bf" 
+        stroke-width="35" 
+        fill="none" 
+        stroke-linecap="round"/>
+
+  <!-- Le corps du sac (Couleur Primary: #37a6bf) -->
+  <rect x="128" y="160" width="256" height="230" rx="40" 
+        fill="#37a6bf" 
+        filter="url(#shadow)"/>
+
+  <!-- La lettre T stylisée (en blanc découpé) -->
+  <path d="M210 230 H302 M256 230 V330" 
+        stroke="#FFFFFF" 
+        stroke-width="25" 
+        stroke-linecap="round" 
+        fill="none"/>
+
+  <!-- L'accent / Badge (Couleur Secondary: #FFE24B) -->
+  <circle cx="364" cy="370" r="45" fill="#FFE24B" stroke="#FFFFFF" stroke-width="6"/>
+</svg>
