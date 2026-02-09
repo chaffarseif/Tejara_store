@@ -4,6 +4,8 @@ import 'package:tejara_store/core/routing/routers/app_router.gr.dart';
 
 const loginRouteContainer = RouterPath(basePath: 'login');
 const registerRouteContainer = RouterPath(basePath: 'register');
+const splashRouteContainer = RouterPath(basePath: 'splash');
+const homeRouteContainer = RouterPath(basePath: 'home');
 
 @AutoRouterConfig(replaceInRouteName: 'Container,Route')
 class AppRouter extends RootStackRouter {
@@ -38,12 +40,27 @@ class AppRouter extends RootStackRouter {
                               initial: true,
                               children: [
                                 AutoRoute(
-                                  page: LoginRoute.page,
-                                  path: loginRouteContainer.path,
-                                ),
-                                AutoRoute(
-                                  page: RegisterRoute.page,
-                                  path: registerRouteContainer.path,
+                                  page: RoutingListenerRoute.page,
+                                  initial: true,
+                                  children: [
+                                    AutoRoute(
+                                      page: SplashRoute.page,
+                                      path: splashRouteContainer.path,
+                                      initial: true,
+                                    ),
+                                    AutoRoute(
+                                      page: LoginRoute.page,
+                                      path: loginRouteContainer.path,
+                                    ),
+                                    AutoRoute(
+                                      page: RegisterRoute.page,
+                                      path: registerRouteContainer.path,
+                                    ),
+                                    AutoRoute(
+                                      page: HomeRoute.page,
+                                      path: homeRouteContainer.path,
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),

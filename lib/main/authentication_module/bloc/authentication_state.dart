@@ -1,10 +1,34 @@
 part of 'authentication_bloc.dart';
 
-sealed class AuthenticationState extends Equatable {
+abstract class AuthenticationState extends Equatable {
   const AuthenticationState();
-  
-  @override
-  List<Object> get props => [];
 }
 
-final class AuthenticationInitial extends AuthenticationState {}
+@immutable
+class AuthenticationStateLoggedOut extends AuthenticationState {
+  late final RouterPath routerPath;
+
+  AuthenticationStateLoggedOut({RouterPath? routerPath}) {
+    this.routerPath = routerPath ?? loginRouteContainer;
+  }
+  @override
+  List<Object?> get props => [routerPath];
+}
+
+@immutable
+class AuthenticationStateLoggedIn extends AuthenticationState {
+  final AuthenticationUser user;
+
+  const AuthenticationStateLoggedIn({required this.user});
+  static AuthenticationStateLoggedIn fromState(
+    AuthenticationStateLoggedIn authenticationStateLoggedIn, {
+    Map<String, dynamic> updateMap = const {},
+  }) {
+    return AuthenticationStateLoggedIn(
+      user: updateMap['user'] ?? authenticationStateLoggedIn.user,
+    );
+  }
+
+  @override
+  List<Object?> get props => [user];
+}

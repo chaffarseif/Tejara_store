@@ -21,3 +21,11 @@ class RoutingEventGoToRouterPath extends RouterEvent {
 class RoutingEventGoBack extends RouterEvent {
   const RoutingEventGoBack({required super.context});
 }
+
+class RoutingEventGoToLogin extends RouterEvent {
+  const RoutingEventGoToLogin({required super.context});
+}
+
+class RoutingEventGoToRegister extends RouterEvent {
+  const RoutingEventGoToRegister({required super.context});
+}
