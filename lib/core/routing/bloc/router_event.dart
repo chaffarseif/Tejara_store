@@ -29,3 +29,11 @@ class RoutingEventGoToLogin extends RouterEvent {
 class RoutingEventGoToRegister extends RouterEvent {
   const RoutingEventGoToRegister({required super.context});
 }
+
+class RoutingEventGoToOnBoarding extends RouterEvent {
+  const RoutingEventGoToOnBoarding({required super.context});
+}
+
+class RoutingEventGoToSplash extends RouterEvent {
+  const RoutingEventGoToSplash({required super.context});
+}

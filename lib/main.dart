@@ -1,4 +1,3 @@
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:tejara_store/core/config/firebase_config.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -23,12 +22,8 @@ Future<void> initFirebase() async {
 // }
 
 Future<void> initProject() async {
-  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  await ConcurrentFutures.executeList([
-    initFirebase(),
-    // initGoogleSignIn(),
-  ]);
+  WidgetsFlutterBinding.ensureInitialized();
+  await ConcurrentFutures.executeList([initFirebase()]);
 }
 
 void main() async {

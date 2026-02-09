@@ -26,5 +26,14 @@ class RouterBloc extends Bloc<RouterEvent, RouterState> {
         registerRouteContainer,
       );
     });
+    on<RoutingEventGoToOnBoarding>((event, emit) async {
+      await routerProvider.navigateToRoute(
+        event.context,
+        onBoardingRouteContainer,
+      );
+    });
+    on<RoutingEventGoToSplash>((event, emit) async {
+      await routerProvider.navigateToRoute(event.context, splashRouteContainer);
+    });
   }
 }

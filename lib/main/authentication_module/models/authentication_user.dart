@@ -11,6 +11,7 @@ class AuthenticationUser extends Equatable {
     AuthenticationSignInProviderUser
   >
   authenticationSignInProviderUsersMap;
+  late final bool isFirstTime;
 
   AuthenticationUser.fromFirebaseUser(User user) {
     uid = user.uid;
@@ -20,6 +21,7 @@ class AuthenticationUser extends Equatable {
         AuthenticationSignInProviderUser.fromFirebaseUsersInfo(
           user.providerData,
         );
+    isFirstTime = true;
   }
 
   @override
@@ -28,5 +30,6 @@ class AuthenticationUser extends Equatable {
     email,
     isEmailVerified,
     authenticationSignInProviderUsersMap,
+    isFirstTime,
   ];
 }

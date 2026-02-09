@@ -14,13 +14,13 @@ class OnBoardingService {
 
   Future<bool> onBoardingSeen() async {
     try {
-      return await _sharedPreferences.getBool(onBoardingSeenKey);
-    } on Exception catch (e) {
+      return _sharedPreferences.getBool(onBoardingSeenKey) ?? false;
+    } on Exception {
       return false;
     }
   }
 
   Future<void> setOnBoardingSeen() async {
-    await _sharedPreferences.setValue(onBoardingSeenKey, true);
+    await _sharedPreferences.setBool(onBoardingSeenKey, true);
   }
 }

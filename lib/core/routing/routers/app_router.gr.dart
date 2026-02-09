@@ -9,7 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i13;
+import 'package:auto_route/auto_route.dart' as _i14;
 import 'package:tejara_store/main/app_life_cycle_module/widget/app_life_cycle_container.dart'
     as _i1;
 import 'package:tejara_store/main/app_store_module/widget/app_store_update_container.dart'
@@ -18,8 +18,10 @@ import 'package:tejara_store/main/authentication_module/widgets/home/home_contai
     as _i5;
 import 'package:tejara_store/main/authentication_module/widgets/login/widgets/login_container.dart'
     as _i7;
-import 'package:tejara_store/main/authentication_module/widgets/register/widgets/register_container.dart'
+import 'package:tejara_store/main/authentication_module/widgets/on_boarding/onboarding_container/onBoarding_container.dart'
     as _i8;
+import 'package:tejara_store/main/authentication_module/widgets/register/widgets/register_container.dart'
+    as _i9;
 import 'package:tejara_store/main/internet_checker_module/widgets/internet_checker_container.dart'
     as _i6;
 import 'package:tejara_store/main/main_module/widgets/bloc_widgets/core_bloc_provider_contatiner.dart'
@@ -27,22 +29,22 @@ import 'package:tejara_store/main/main_module/widgets/bloc_widgets/core_bloc_pro
 import 'package:tejara_store/main/main_module/widgets/bloc_widgets/general_bloc_provider_container.dart'
     as _i4;
 import 'package:tejara_store/main/main_module/widgets/bloc_widgets/routing_listener_container.dart'
-    as _i10;
-import 'package:tejara_store/main/main_module/widgets/main/splash/splash_container.dart'
     as _i11;
-import 'package:tejara_store/main/responsive/responsive_container.dart' as _i9;
-import 'package:tejara_store/main/theme_selector_module/widgets/theme_selector_container/theme_selector_container.dart'
+import 'package:tejara_store/main/main_module/widgets/main/splash/splash_container.dart'
     as _i12;
+import 'package:tejara_store/main/responsive/responsive_container.dart' as _i10;
+import 'package:tejara_store/main/theme_selector_module/widgets/theme_selector_container/theme_selector_container.dart'
+    as _i13;
 
 /// generated route for
 /// [_i1.AppLifeCycleContainer]
-class AppLifeCycleRoute extends _i13.PageRouteInfo<void> {
-  const AppLifeCycleRoute({List<_i13.PageRouteInfo>? children})
+class AppLifeCycleRoute extends _i14.PageRouteInfo<void> {
+  const AppLifeCycleRoute({List<_i14.PageRouteInfo>? children})
     : super(AppLifeCycleRoute.name, initialChildren: children);
 
   static const String name = 'AppLifeCycleRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i1.AppLifeCycleContainer();
@@ -52,13 +54,13 @@ class AppLifeCycleRoute extends _i13.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.AppStoreUpdateContainer]
-class AppStoreUpdateRoute extends _i13.PageRouteInfo<void> {
-  const AppStoreUpdateRoute({List<_i13.PageRouteInfo>? children})
+class AppStoreUpdateRoute extends _i14.PageRouteInfo<void> {
+  const AppStoreUpdateRoute({List<_i14.PageRouteInfo>? children})
     : super(AppStoreUpdateRoute.name, initialChildren: children);
 
   static const String name = 'AppStoreUpdateRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i2.AppStoreUpdateContainer();
@@ -68,13 +70,13 @@ class AppStoreUpdateRoute extends _i13.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.CoreBlocProviderContainer]
-class CoreBlocProviderRoute extends _i13.PageRouteInfo<void> {
-  const CoreBlocProviderRoute({List<_i13.PageRouteInfo>? children})
+class CoreBlocProviderRoute extends _i14.PageRouteInfo<void> {
+  const CoreBlocProviderRoute({List<_i14.PageRouteInfo>? children})
     : super(CoreBlocProviderRoute.name, initialChildren: children);
 
   static const String name = 'CoreBlocProviderRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i3.CoreBlocProviderContainer();
@@ -84,13 +86,13 @@ class CoreBlocProviderRoute extends _i13.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.GeneralBlocProviderContainer]
-class GeneralBlocProviderRoute extends _i13.PageRouteInfo<void> {
-  const GeneralBlocProviderRoute({List<_i13.PageRouteInfo>? children})
+class GeneralBlocProviderRoute extends _i14.PageRouteInfo<void> {
+  const GeneralBlocProviderRoute({List<_i14.PageRouteInfo>? children})
     : super(GeneralBlocProviderRoute.name, initialChildren: children);
 
   static const String name = 'GeneralBlocProviderRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i4.GeneralBlocProviderContainer();
@@ -100,13 +102,13 @@ class GeneralBlocProviderRoute extends _i13.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.HomeContainer]
-class HomeRoute extends _i13.PageRouteInfo<void> {
-  const HomeRoute({List<_i13.PageRouteInfo>? children})
+class HomeRoute extends _i14.PageRouteInfo<void> {
+  const HomeRoute({List<_i14.PageRouteInfo>? children})
     : super(HomeRoute.name, initialChildren: children);
 
   static const String name = 'HomeRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i5.HomeContainer();
@@ -116,13 +118,13 @@ class HomeRoute extends _i13.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.InternetCheckerContainer]
-class InternetCheckerRoute extends _i13.PageRouteInfo<void> {
-  const InternetCheckerRoute({List<_i13.PageRouteInfo>? children})
+class InternetCheckerRoute extends _i14.PageRouteInfo<void> {
+  const InternetCheckerRoute({List<_i14.PageRouteInfo>? children})
     : super(InternetCheckerRoute.name, initialChildren: children);
 
   static const String name = 'InternetCheckerRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i6.InternetCheckerContainer();
@@ -132,13 +134,13 @@ class InternetCheckerRoute extends _i13.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.LoginContainer]
-class LoginRoute extends _i13.PageRouteInfo<void> {
-  const LoginRoute({List<_i13.PageRouteInfo>? children})
+class LoginRoute extends _i14.PageRouteInfo<void> {
+  const LoginRoute({List<_i14.PageRouteInfo>? children})
     : super(LoginRoute.name, initialChildren: children);
 
   static const String name = 'LoginRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i7.LoginContainer();
@@ -147,81 +149,97 @@ class LoginRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.RegisterContainer]
-class RegisterRoute extends _i13.PageRouteInfo<void> {
-  const RegisterRoute({List<_i13.PageRouteInfo>? children})
+/// [_i8.OnboardingContainer]
+class OnboardingRoute extends _i14.PageRouteInfo<void> {
+  const OnboardingRoute({List<_i14.PageRouteInfo>? children})
+    : super(OnboardingRoute.name, initialChildren: children);
+
+  static const String name = 'OnboardingRoute';
+
+  static _i14.PageInfo page = _i14.PageInfo(
+    name,
+    builder: (data) {
+      return const _i8.OnboardingContainer();
+    },
+  );
+}
+
+/// generated route for
+/// [_i9.RegisterContainer]
+class RegisterRoute extends _i14.PageRouteInfo<void> {
+  const RegisterRoute({List<_i14.PageRouteInfo>? children})
     : super(RegisterRoute.name, initialChildren: children);
 
   static const String name = 'RegisterRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
-      return const _i8.RegisterContainer();
+      return const _i9.RegisterContainer();
     },
   );
 }
 
 /// generated route for
-/// [_i9.ResponsiveContainer]
-class ResponsiveRoute extends _i13.PageRouteInfo<void> {
-  const ResponsiveRoute({List<_i13.PageRouteInfo>? children})
+/// [_i10.ResponsiveContainer]
+class ResponsiveRoute extends _i14.PageRouteInfo<void> {
+  const ResponsiveRoute({List<_i14.PageRouteInfo>? children})
     : super(ResponsiveRoute.name, initialChildren: children);
 
   static const String name = 'ResponsiveRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
-      return const _i9.ResponsiveContainer();
+      return const _i10.ResponsiveContainer();
     },
   );
 }
 
 /// generated route for
-/// [_i10.RoutingListenerContainer]
-class RoutingListenerRoute extends _i13.PageRouteInfo<void> {
-  const RoutingListenerRoute({List<_i13.PageRouteInfo>? children})
+/// [_i11.RoutingListenerContainer]
+class RoutingListenerRoute extends _i14.PageRouteInfo<void> {
+  const RoutingListenerRoute({List<_i14.PageRouteInfo>? children})
     : super(RoutingListenerRoute.name, initialChildren: children);
 
   static const String name = 'RoutingListenerRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
-      return const _i10.RoutingListenerContainer();
+      return const _i11.RoutingListenerContainer();
     },
   );
 }
 
 /// generated route for
-/// [_i11.SplashContainer]
-class SplashRoute extends _i13.PageRouteInfo<void> {
-  const SplashRoute({List<_i13.PageRouteInfo>? children})
+/// [_i12.SplashContainer]
+class SplashRoute extends _i14.PageRouteInfo<void> {
+  const SplashRoute({List<_i14.PageRouteInfo>? children})
     : super(SplashRoute.name, initialChildren: children);
 
   static const String name = 'SplashRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
-      return const _i11.SplashContainer();
+      return const _i12.SplashContainer();
     },
   );
 }
 
 /// generated route for
-/// [_i12.ThemeSelectorContainer]
-class ThemeSelectorRoute extends _i13.PageRouteInfo<void> {
-  const ThemeSelectorRoute({List<_i13.PageRouteInfo>? children})
+/// [_i13.ThemeSelectorContainer]
+class ThemeSelectorRoute extends _i14.PageRouteInfo<void> {
+  const ThemeSelectorRoute({List<_i14.PageRouteInfo>? children})
     : super(ThemeSelectorRoute.name, initialChildren: children);
 
   static const String name = 'ThemeSelectorRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
-      return const _i12.ThemeSelectorContainer();
+      return const _i13.ThemeSelectorContainer();
     },
   );
 }

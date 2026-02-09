@@ -7,6 +7,7 @@ class SplashPresentation extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
       backgroundColor: isDark ? Colors.black : Colors.white,
       body: Center(
@@ -14,8 +15,8 @@ class SplashPresentation extends HookWidget {
           isDark
               ? 'assets/logos/t-store-splash-logo-white.png'
               : 'assets/logos/t-store-splash-logo-black.png',
-          width: 200, // tu peux ajuster la taille
-          height: 200,
+          width: 300,
+          height: 300,
         ),
       ),
     );

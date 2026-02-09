@@ -6,6 +6,7 @@ const loginRouteContainer = RouterPath(basePath: 'login');
 const registerRouteContainer = RouterPath(basePath: 'register');
 const splashRouteContainer = RouterPath(basePath: 'splash');
 const homeRouteContainer = RouterPath(basePath: 'home');
+const onBoardingRouteContainer = RouterPath(basePath: 'onboarding');
 
 @AutoRouterConfig(replaceInRouteName: 'Container,Route')
 class AppRouter extends RootStackRouter {
@@ -47,6 +48,10 @@ class AppRouter extends RootStackRouter {
                                       page: SplashRoute.page,
                                       path: splashRouteContainer.path,
                                       initial: true,
+                                    ),
+                                    AutoRoute(
+                                      page: OnboardingRoute.page,
+                                      path: onBoardingRouteContainer.path,
                                     ),
                                     AutoRoute(
                                       page: LoginRoute.page,
