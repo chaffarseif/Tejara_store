@@ -8,15 +8,27 @@ import 'package:tejara_store/main/authentication_module/widgets/on_boarding/onbo
 import 'package:tejara_store/main/authentication_module/widgets/on_boarding/onboarding_presentation/titleonboarding.dart';
 
 class OnboardingPresentation extends HookWidget {
-  const OnboardingPresentation({super.key});
+  final VoidCallback goToLogin;
+  const OnboardingPresentation({super.key, required this.goToLogin});
 
   @override
   Widget build(BuildContext context) {
     final controller = usePageController();
+    final currentPage = useState(0);
+
+    useEffect(() {
+      void listener() {
+        currentPage.value = controller.page?.round() ?? 0;
+      }
+
+      controller.addListener(listener);
+      return () => controller.removeListener(listener);
+    }, [controller]);
 
     return Scaffold(
       body: Stack(
         children: [
+          /// Pages
           PageView(
             controller: controller,
             children: [
@@ -37,28 +49,54 @@ class OnboardingPresentation extends HookWidget {
               ),
             ],
           ),
+
+          /// Skip Button
           Positioned(
-            bottom: TejaraSizes.appBarHeight,
-            left: 0,
-            right: 0,
-            child: Center(
-              child: SmoothPageIndicator(
-                controller: controller,
-                count: 3,
-                effect: const ExpandingDotsEffect(
-                  activeDotColor: TejaraColors
-                      .buttonPrimary, // Vous pouvez changer la couleur ici
-                  dotHeight: 8,
-                  dotWidth: 8,
-                ),
-              ),
-            ),
+            top: kToolbarHeight,
+            right: TejaraSizes.defaultSpace,
+            child: TextButton(onPressed: goToLogin, child: const Text("Skip")),
           ),
+
+          /// Bottom Controls
           Positioned(
-            bottom: TejaraSizes.appBarHeight,
-            left: 0,
-            right: 0,
-            child: ElevatedButton(onPressed: () {}, child: Text("Next")),
+            bottom: TejaraSizes.defaultSpace,
+            left: TejaraSizes.defaultSpace,
+            right: TejaraSizes.defaultSpace,
+            child: Column(
+              children: [
+                SmoothPageIndicator(
+                  controller: controller,
+                  count: 3,
+                  effect: const ExpandingDotsEffect(
+                    activeDotColor: TejaraColors.buttonPrimary,
+                    dotHeight: 8,
+                  ),
+                ),
+                const SizedBox(height: TejaraSizes.spaceBtwSections),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (currentPage.value == 2) {
+                        goToLogin();
+                      } else {
+                        controller.nextPage(
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: TejaraColors.buttonPrimary,
+                      foregroundColor: TejaraColors.textWhite,
+                    ),
+                    child: Text(
+                      currentPage.value == 2 ? "Get Started" : "Next",
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),

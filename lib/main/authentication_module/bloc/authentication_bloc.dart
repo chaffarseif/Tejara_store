@@ -59,9 +59,19 @@ class AuthenticationBloc
       }
     });
     on<AuthenticationEventCheckStatus>((event, emit) async {
+      // 1️⃣ État de chargement (Splash)
+      emit(const AuthenticationStateIsLoading());
+
+      // 2️⃣ Délai minimum pour voir le Splash screen (ex: 2 secondes)
+      await Future.delayed(const Duration(seconds: 3));
+
+      // 3️⃣ Vérifier si l'onboarding est déjà vu
       final onBoardingSeen = await _onBoardingService.onBoardingSeen();
+
+      // 4️⃣ Vérifier si l'utilisateur est connecté
       final user = await authenticationService.getAuthenticatedUser();
 
+      // 4️⃣ Émettre l'état final
       if (user != null) {
         emit(
           AuthenticationStateLoggedIn(
@@ -70,18 +80,13 @@ class AuthenticationBloc
           ),
         );
       } else {
-        print('--- [Bloc] User is Logged Out ---');
-        if (!onBoardingSeen) {
-          print(
-            '--- [Bloc] Onboarding NOT seen, redirecting to Onboarding ---',
-          );
-          emit(
-            AuthenticationStateLoggedOut(routerPath: onBoardingRouteContainer),
-          );
-        } else {
-          print('--- [Bloc] Onboarding seen, redirecting to Login ---');
-          emit(AuthenticationStateLoggedOut(routerPath: loginRouteContainer));
-        }
+        emit(
+          AuthenticationStateLoggedOut(
+            routerPath: onBoardingSeen
+                ? loginRouteContainer
+                : onBoardingRouteContainer,
+          ),
+        );
       }
     });
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:tejara_store/core/assets/sizes.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -16,18 +15,20 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: TejaraSizes.defaultSpace,
-        vertical: TejaraSizes.defaultSpace,
-      ),
+      padding: const EdgeInsets.all(TejaraSizes.defaultSpace),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          /// Animation
-          Image.asset(lottie, fit: BoxFit.contain),
+          SizedBox(height: TejaraSizes.defaultSpace * 4),
 
-          const SizedBox(height: 24),
+          /// Animation
+          Image.asset(
+            lottie,
+            fit: BoxFit.contain,
+            height: MediaQuery.of(context).size.height * 0.4,
+          ),
+
+          const SizedBox(height: TejaraSizes.spaceBtwSections),
 
           /// Title
           Text(
@@ -36,7 +37,7 @@ class OnboardingPage extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
 
-          const SizedBox(height: 12),
+          const SizedBox(height: TejaraSizes.spaceBtwItems),
 
           /// Description
           if (description != null)

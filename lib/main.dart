@@ -1,3 +1,4 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tejara_store/core/config/firebase_config.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -9,6 +10,7 @@ import 'package:tejara_store/core/config/global_config.dart';
 import 'package:tejara_store/core/routing/routers/app_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
+late final SharedPreferences sharedPreferences;
 Future<void> initFirebase() async {
   await Firebase.initializeApp(options: FirebaseConfig.options);
   await FirebaseAppCheck.instance.activate(
@@ -24,6 +26,7 @@ Future<void> initFirebase() async {
 Future<void> initProject() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ConcurrentFutures.executeList([initFirebase()]);
+  sharedPreferences = await SharedPreferences.getInstance();
 }
 
 void main() async {
