@@ -35,5 +35,14 @@ class RouterBloc extends Bloc<RouterEvent, RouterState> {
     on<RoutingEventGoToSplash>((event, emit) async {
       await routerProvider.navigateToRoute(event.context, splashRouteContainer);
     });
+    on<RoutingEventGoToHome>((event, emit) async {
+      await routerProvider.navigateToRoute(event.context, homeRouteContainer);
+    });
+    on<RoutingEventGoToForgotPassword>((event, emit) async {
+      await routerProvider.navigateToRoute(
+        event.context,
+        forgetPasswordRouteContainer,
+      );
+    });
   }
 }

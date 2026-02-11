@@ -37,3 +37,11 @@ class RoutingEventGoToOnBoarding extends RouterEvent {
 class RoutingEventGoToSplash extends RouterEvent {
   const RoutingEventGoToSplash({required super.context});
 }
+
+class RoutingEventGoToHome extends RouterEvent {
+  const RoutingEventGoToHome({required super.context});
+}
+
+class RoutingEventGoToForgotPassword extends RouterEvent {
+  const RoutingEventGoToForgotPassword({required super.context});
+}

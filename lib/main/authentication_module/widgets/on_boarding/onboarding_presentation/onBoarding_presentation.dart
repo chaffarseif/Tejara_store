@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:tejara_store/core/assets/Text_strings.dart';
 import 'package:tejara_store/core/assets/custom_colors.dart';
 import 'package:tejara_store/core/assets/image_assets.dart';
 import 'package:tejara_store/core/assets/sizes.dart';
 import 'package:tejara_store/main/authentication_module/widgets/on_boarding/onboarding_presentation/onBoarding_page.dart';
-import 'package:tejara_store/main/authentication_module/widgets/on_boarding/onboarding_presentation/titleonboarding.dart';
 
 class OnboardingPresentation extends HookWidget {
   final VoidCallback goToLogin;
@@ -34,18 +34,18 @@ class OnboardingPresentation extends HookWidget {
             children: [
               OnboardingPage(
                 lottie: ImageAssets.onBoarding1,
-                title: Textonboarding.onBoarding1Title,
-                description: Textonboarding.onBoarding1Description,
+                title: TejaraTexts.onBoardingTitle1,
+                description: TejaraTexts.onBoardingSubTitle1,
               ),
               OnboardingPage(
                 lottie: ImageAssets.onBoarding2,
-                title: Textonboarding.onBoarding2Title,
-                description: Textonboarding.onBoarding2Description,
+                title: TejaraTexts.onBoardingTitle2,
+                description: TejaraTexts.onBoardingSubTitle2,
               ),
               OnboardingPage(
                 lottie: ImageAssets.onBoarding3,
-                title: Textonboarding.onBoarding3Title,
-                description: Textonboarding.onBoarding3Description,
+                title: TejaraTexts.onBoardingTitle3,
+                description: TejaraTexts.onBoardingSubTitle3,
               ),
             ],
           ),
@@ -54,7 +54,10 @@ class OnboardingPresentation extends HookWidget {
           Positioned(
             top: kToolbarHeight,
             right: TejaraSizes.defaultSpace,
-            child: TextButton(onPressed: goToLogin, child: const Text("Skip")),
+            child: TextButton(
+              onPressed: goToLogin,
+              child: Text(TejaraTexts.skip),
+            ),
           ),
 
           /// Bottom Controls

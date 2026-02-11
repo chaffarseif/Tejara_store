@@ -1,28 +1,26 @@
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:tejara_store/main/authentication_module/models/authentication_sign_in_provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'authentication_sign_in_provider.dart';
 
 class AuthenticationUser extends Equatable {
-  late final String uid;
-  late final String? email;
-  late final bool isEmailVerified;
-  late final Map<
+  final String uid;
+  final String? email;
+  final bool isEmailVerified;
+  final Map<
     AuthenticationSignInProviderUserEnum,
     AuthenticationSignInProviderUser
   >
   authenticationSignInProviderUsersMap;
-  late final bool isFirstTime;
+  final bool isFirstTime;
 
-  AuthenticationUser.fromFirebaseUser(User user) {
-    uid = user.uid;
-    email = user.email;
-    isEmailVerified = user.emailVerified;
-    authenticationSignInProviderUsersMap =
-        AuthenticationSignInProviderUser.fromFirebaseUsersInfo(
-          user.providerData,
-        );
-    isFirstTime = true;
-  }
+  /// Constructeur depuis Supabase User
+  AuthenticationUser.fromSupabaseUser(User user)
+    : uid = user.id,
+      email = user.email,
+      isEmailVerified = user.emailConfirmedAt != null,
+      authenticationSignInProviderUsersMap =
+          AuthenticationSignInProviderUser.fromSupabaseUserIdentities(user),
+      isFirstTime = true;
 
   @override
   List<Object?> get props => [

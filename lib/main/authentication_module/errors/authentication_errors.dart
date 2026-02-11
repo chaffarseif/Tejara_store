@@ -1,31 +1,44 @@
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tejara_store/main/authentication_module/errors/login_errors.dart';
-import 'package:tejara_store/main/authentication_module/errors/signup_errors.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+import 'login_errors.dart';
+import 'signup_errors.dart';
 
 @immutable
 abstract class AuthenticationError extends Equatable implements Exception {
+  /// Mapping basé sur les messages Supabase
   static const Map<String, AuthenticationError> authenticationErrorMapping = {
-    'weak-password': AuthenticationErrorSignupWeakPassword(),
-    'email-already-in-use': AuthenticationErrorSignupEmailAlreadyInUse(),
-    'account-exists-with-different-credential':
-        AuthenticationErrorAccountExistsWithDifferentCredential(),
-    'invalid-email': AuthenticationErrorSignupInvalidEmail(),
-    'user-not-found': AuthenticationErrorLoginUserNotFound(),
-    'wrong-password': AuthenticationErrorLoginWrongPassword(),
-    'user-disabled': AuthenticationErrorLoginUserDisabled(),
-    'requires-recent-login': AuthenticationErrorRequiresRecentLogin(),
-    'user-token-expired': AuthenticationErrorUserTokenExpired(),
+    // Signup
+    'password': AuthenticationErrorSignupWeakPassword(),
+    'already registered': AuthenticationErrorSignupEmailAlreadyInUse(),
+    'invalid email': AuthenticationErrorSignupInvalidEmail(),
+    'email not confirmed': AuthenticationErrorEmailNotConfirmed(),
+
+    // Login
+    'invalid login credentials': AuthenticationErrorLoginWrongPassword(),
+    'user not found': AuthenticationErrorLoginUserNotFound(),
+
+    // Sécurité / session
+    'jwt expired': AuthenticationErrorUserTokenExpired(),
+    'permission denied': AuthenticationErrorWrongPermissions(),
   };
 
   final String errorText;
 
   const AuthenticationError({required this.errorText});
 
-  factory AuthenticationError.fromFirebase(FirebaseAuthException exception) =>
-      authenticationErrorMapping[exception.code.toLowerCase().trim()] ??
-      const AuthErrorUnknown();
+  factory AuthenticationError.fromSupabase(AuthException exception) {
+    final message = exception.message.toLowerCase();
+
+    for (final entry in authenticationErrorMapping.entries) {
+      if (message.contains(entry.key)) {
+        return entry.value;
+      }
+    }
+
+    return const AuthErrorUnknown();
+  }
 
   @override
   List<Object?> get props => [errorText];

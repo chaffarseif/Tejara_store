@@ -1,7 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,10 +20,7 @@ class GeneralBlocProviderContainer extends StatelessWidget {
         BlocProvider<AuthenticationBloc>(
           create: (context) => AuthenticationBloc(
             OnBoardingService(sharedPreferences: sharedPreferences),
-            AuthenticationService(
-              authentication: FirebaseAuth.instance,
-              firestore: FirebaseFirestore.instance,
-            ),
+            AuthenticationService.instance,
           )..add(const AuthenticationEventCheckStatus()),
         ),
       ],

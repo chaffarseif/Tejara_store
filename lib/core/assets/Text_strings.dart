@@ -8,16 +8,16 @@ class TejaraTexts {
   static const String hkContinue = "Continue";
 
   // -- OnBoarding Texts
-  static const String onBoardingTitle1 = "Choose your product";
-  static const String onBoardingTitle2 = "Select Payment Method";
-  static const String onBoardingTitle3 = "Deliver at your door step";
+  static const String onBoardingTitle1 = "Welcome to Tejara Store";
+  static const String onBoardingTitle2 = "Shop Everything You Love!";
+  static const String onBoardingTitle3 = "Fast & Reliable Delivery!";
 
   static const String onBoardingSubTitle1 =
-      "Welcome to a World of Limitless Choices - Your Perfect Product Awaits!";
+      "Your one-stop destination for effortless and enjoyable shopping.";
   static const String onBoardingSubTitle2 =
-      "For Seamless Transactions, Choose Your Payment Path - Your Convenience, Our Priority!";
+      "Discover top-quality products at the best prices with a seamless shopping experience.";
   static const String onBoardingSubTitle3 =
-      "From Our Doorstep to Yours - Swift, Secure, and Contactless Delivery!";
+      "Get your favorite items delivered to your doorstep, anytime, anywhere.";
 
   // -- Authentication Forms
   static const String firstName = "First Name";
@@ -41,9 +41,9 @@ class TejaraTexts {
   static const String resendEmailIn = "Resend email in";
 
   // -- Authentication Headings
-  static const String loginTitle = "Welcome back,";
+  static const String loginTitle = "Tejara Store";
   static const String loginSubTitle =
-      "Discover Limitless Choices and Unmatched Convenience.";
+      "Log in to Access Exclusive Deals and Simplify Your Shopping Experience.";
   static const String signupTitle = "Let's create your account";
   static const String forgetPasswordTitle = "Forget password";
   static const String forgetPasswordSubTitle =

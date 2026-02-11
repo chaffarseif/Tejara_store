@@ -1,35 +1,51 @@
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthenticationSignInProviderUser extends Equatable {
-  late final String? email;
-  late final String? displayName;
-  AuthenticationSignInProviderUser.fromFirebaseUserInfo(UserInfo userInfo) {
-    email = userInfo.email;
-    displayName = userInfo.displayName;
+  final String? email;
+  final String? displayName;
+
+  const AuthenticationSignInProviderUser({this.email, this.displayName});
+
+  /// Crée depuis un Supabase User
+  factory AuthenticationSignInProviderUser.fromSupabaseUser(User user) {
+    return AuthenticationSignInProviderUser(
+      email: user.email,
+      displayName: user.userMetadata?['full_name'] ?? user.email,
+    );
   }
+
+  /// Crée une map par provider (identities Supabase)
   static Map<
     AuthenticationSignInProviderUserEnum,
     AuthenticationSignInProviderUser
   >
-  fromFirebaseUsersInfo(List<UserInfo> userInfo) {
+  fromSupabaseUserIdentities(User user) {
     final Map<
       AuthenticationSignInProviderUserEnum,
       AuthenticationSignInProviderUser
     >
-    authenticationSignInProviderUsersMap = {};
-    for (final info in userInfo) {
-      AuthenticationSignInProviderUserEnum?
-      authenticationSignInProviderUserEnum =
-          AuthenticationSignInProviderUserEnum.getAuthenticationSignInProviderUserByProviderId(
-            info.providerId,
-          );
-      if (authenticationSignInProviderUserEnum != null) {
-        authenticationSignInProviderUsersMap[authenticationSignInProviderUserEnum] =
-            AuthenticationSignInProviderUser.fromFirebaseUserInfo(info);
+    result = {};
+
+    for (final identity in user.identities ?? []) {
+      final providerEnum = AuthenticationSignInProviderUserEnum.getByProviderId(
+        identity.provider,
+      );
+      if (providerEnum != null) {
+        result[providerEnum] = AuthenticationSignInProviderUser(
+          email: user.email,
+          displayName: user.userMetadata?['full_name'] ?? user.email,
+        );
       }
     }
-    return authenticationSignInProviderUsersMap;
+
+    // Fallback si pas de provider spécifique
+    if (result.isEmpty) {
+      result[AuthenticationSignInProviderUserEnum.emailPassword] =
+          AuthenticationSignInProviderUser.fromSupabaseUser(user);
+    }
+
+    return result;
   }
 
   @override
@@ -37,14 +53,19 @@ class AuthenticationSignInProviderUser extends Equatable {
 }
 
 enum AuthenticationSignInProviderUserEnum {
-  emailPassword('password');
+  emailPassword('email'),
+  google('google'),
+  facebook('facebook'); // <-- ajouté Facebook
 
   final String providerId;
   const AuthenticationSignInProviderUserEnum(this.providerId);
-  static AuthenticationSignInProviderUserEnum?
-  getAuthenticationSignInProviderUserByProviderId(String providerId) {
-    return AuthenticationSignInProviderUserEnum.values
-        .where((element) => element.providerId == providerId)
-        .first;
+
+  static AuthenticationSignInProviderUserEnum? getByProviderId(
+    String providerId,
+  ) {
+    return AuthenticationSignInProviderUserEnum.values.firstWhere(
+      (e) => e.providerId == providerId,
+      orElse: () => AuthenticationSignInProviderUserEnum.emailPassword,
+    );
   }
 }

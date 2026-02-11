@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:tejara_store/core/config/firebase_config.dart';
-import 'package:firebase_app_check/firebase_app_check.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:tejara_store/core/config/supabase_config.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:form_builder_validators/localization/l10n.dart';
@@ -11,11 +11,10 @@ import 'package:tejara_store/core/routing/routers/app_router.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 late final SharedPreferences sharedPreferences;
-Future<void> initFirebase() async {
-  await Firebase.initializeApp(options: FirebaseConfig.options);
-  await FirebaseAppCheck.instance.activate(
-    providerAndroid: FirebaseConfig.providerAndroid,
-    providerApple: FirebaseConfig.providerApple,
+Future<void> initSupabase() async {
+  await Supabase.initialize(
+    url: SupabaseConfig.supabaseUrl,
+    anonKey: SupabaseConfig.supabaseAnonKey,
   );
 }
 
@@ -25,7 +24,7 @@ Future<void> initFirebase() async {
 
 Future<void> initProject() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await ConcurrentFutures.executeList([initFirebase()]);
+  await ConcurrentFutures.executeList([initSupabase()]);
   sharedPreferences = await SharedPreferences.getInstance();
 }
 

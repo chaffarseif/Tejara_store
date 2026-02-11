@@ -24,6 +24,18 @@ class AuthenticationEventLoginByEmailAndPassword extends AuthenticationEvent {
   List<Object> get props => [email, password];
 }
 
+@immutable
+class AuthenticationEventSignupByEmailAndPassword extends AuthenticationEvent {
+  final SignupModel signupModel;
+
+  const AuthenticationEventSignupByEmailAndPassword({
+    required this.signupModel,
+  });
+
+  @override
+  List<Object?> get props => [signupModel];
+}
+
 class AuthenticationEventCheckStatus extends AuthenticationEvent {
   const AuthenticationEventCheckStatus();
   @override

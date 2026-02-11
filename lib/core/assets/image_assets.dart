@@ -13,4 +13,6 @@ class ImageAssets {
       'assets/images/on_boarding_images/sammy-line-shopping.gif';
   static const String onBoarding3 =
       'assets/images/on_boarding_images/sammy-line-delivery.gif';
+  static const String googleLogo = 'assets/logos/google-icon.png';
+  static const String facebookLogo = 'assets/logos/facebook-icon.png';
 }

@@ -5,6 +5,7 @@ import 'package:karma_design_system_mobile/providers/router_providers/models/rou
 import 'package:tejara_store/core/routing/routers/app_router.dart';
 import 'package:tejara_store/main/authentication_module/errors/authentication_errors.dart';
 import 'package:tejara_store/main/authentication_module/models/authentication_user.dart';
+import 'package:tejara_store/main/authentication_module/models/signup_user.dart';
 import 'package:tejara_store/main/authentication_module/service/authentication/authentication_service.dart';
 import 'package:tejara_store/main/authentication_module/service/onBoarding_service.dart';
 
@@ -47,6 +48,24 @@ class AuthenticationBloc
         final user = await authenticationService.loginWithEmailAndPassword(
           email,
           password,
+        );
+        emit(AuthenticationStateLoggedIn(user: user));
+      } on AuthenticationError catch (authenticationError) {
+        emit(
+          AuthenticationStateLoggedOut(
+            routerPath: routerPath,
+            authenticationError: authenticationError,
+          ),
+        );
+      }
+    });
+    on<AuthenticationEventSignupByEmailAndPassword>((event, emit) async {
+      final routerPath = (state as AuthenticationStateLoggedOut).routerPath;
+
+      emit(const AuthenticationStateIsLoading());
+      try {
+        final user = await authenticationService.signupWithEmailAndPassword(
+          event.signupModel,
         );
         emit(AuthenticationStateLoggedIn(user: user));
       } on AuthenticationError catch (authenticationError) {

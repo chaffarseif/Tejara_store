@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tejara_store/main/authentication_module/errors/authentication_errors.dart';
+import 'authentication_errors.dart';
 
 @immutable
 class AuthenticationErrorSignupWeakPassword extends AuthenticationError {
@@ -15,17 +15,7 @@ class AuthenticationErrorSignupEmailAlreadyInUse extends AuthenticationError {
   const AuthenticationErrorSignupEmailAlreadyInUse()
     : super(
         errorText:
-            'Un compte existe déjà avec cette adresse e-mail. Si vous avez oublié votre mot de passe, veuillez cliquer sur "Mot de passe oublié" pour suivre la procédure de récupération.',
-      );
-}
-
-@immutable
-class AuthenticationErrorAccountExistsWithDifferentCredential
-    extends AuthenticationError {
-  const AuthenticationErrorAccountExistsWithDifferentCredential()
-    : super(
-        errorText:
-            'Un compte existe déjà avec cette adresse e-mail mais avec un autre service de connexion. Si vous avez oublié votre mot de passe, veuillez cliquer sur "Mot de passe oublié" pour suivre la procédure de récupération.',
+            'Un compte existe déjà avec cette adresse e-mail. Si vous avez oublié votre mot de passe, veuillez cliquer sur "Mot de passe oublié".',
       );
 }
 
@@ -35,5 +25,14 @@ class AuthenticationErrorSignupInvalidEmail extends AuthenticationError {
     : super(
         errorText:
             'L\'adresse e-mail que vous avez saisie est invalide. Merci de vérifier votre adresse e-mail.',
+      );
+}
+
+@immutable
+class AuthenticationErrorEmailNotConfirmed extends AuthenticationError {
+  const AuthenticationErrorEmailNotConfirmed()
+    : super(
+        errorText:
+            'Votre adresse e-mail n’a pas encore été confirmée. Veuillez vérifier votre boîte mail.',
       );
 }
